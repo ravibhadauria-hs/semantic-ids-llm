@@ -38,3 +38,5 @@ uv run python infer_semantic_ids.py \
     --resolve-collisions
 
 echo "Inference complete! Results saved to $OUTPUT_PATH"
+echo "To run evaluation: uv run python evaluate_semantic_ids.py --data-file $OUTPUT_PATH --level 2"
+echo "Evaluation reports will be saved to evaluation_reports/ folder"
