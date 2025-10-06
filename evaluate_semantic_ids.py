@@ -263,8 +263,9 @@ def modify_evaluation_output_path(data_file: str, level: int, output: str) -> st
             collision_suffix = "_collision_resolved" if collision_resolved else ""
             new_filename = f"{base_name}_L{levels}_C{codebook_size}_level{level}{collision_suffix}{extension}"
             
-            # Create new path
+            # Create new path and ensure directory exists
             new_path = path.parent / new_filename
+            new_path.parent.mkdir(parents=True, exist_ok=True)
             return str(new_path)
     except Exception as e:
         print(f"Warning: Could not extract config from data file: {e}")
@@ -286,7 +287,7 @@ def main():
                        help="Number of jobs to sample per group")
     parser.add_argument("--data-file", type=str, default="data/output/jobs_semantic_ids.parquet",
                        help="Path to semantic IDs data file")
-    parser.add_argument("--output", type=str, default="SEMANTIC_ID_EVALUATION.md",
+    parser.add_argument("--output", type=str, default="evaluation_reports/SEMANTIC_ID_EVALUATION.md",
                        help="Output file for evaluation report")
     
     args = parser.parse_args()
