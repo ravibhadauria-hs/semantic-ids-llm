@@ -74,68 +74,68 @@ This report evaluates the semantic clustering quality by examining jobs that sha
 ---
 
 ## Semantic ID Group 3
-**Semantic ID Code**: 152-105-236
-**Total Jobs**: 30
-**Sampled Jobs** (10 jobs):
-
-1. https://app.joinhandshake.com/jobs/10238759
-2. https://app.joinhandshake.com/jobs/10234977
-3. https://app.joinhandshake.com/jobs/10236523
-4. https://app.joinhandshake.com/jobs/10236390
-5. https://app.joinhandshake.com/jobs/10233672
-6. https://app.joinhandshake.com/jobs/10233244
-7. https://app.joinhandshake.com/jobs/10235088
-8. https://app.joinhandshake.com/jobs/10233484
-9. https://app.joinhandshake.com/jobs/10234310
-10. https://app.joinhandshake.com/jobs/10236445
-
-**Semantic ID Breakdown for Sampled Jobs**:
-
-| Job ID | Level 0 | Level 1 | Level 2 | Level 3 | Full Semantic ID |
-|--------|--------|--------|--------|--------|--------|
-| 10238759 | 152 | 105 | 236 | 6 | True |
-| 10234977 | 152 | 105 | 236 | 22 | True |
-| 10236523 | 152 | 105 | 236 | 20 | True |
-| 10236390 | 152 | 105 | 236 | 28 | True |
-| 10233672 | 152 | 105 | 236 | 17 | True |
-| 10233244 | 152 | 105 | 236 | 13 | True |
-| 10235088 | 152 | 105 | 236 | 7 | True |
-| 10233484 | 152 | 105 | 236 | 14 | True |
-| 10234310 | 152 | 105 | 236 | 18 | True |
-| 10236445 | 152 | 105 | 236 | 8 | True |
-
----
-
-## Semantic ID Group 4
 **Semantic ID Code**: 152-105-199
 **Total Jobs**: 30
 **Sampled Jobs** (10 jobs):
 
-1. https://app.joinhandshake.com/jobs/10234231
-2. https://app.joinhandshake.com/jobs/10235988
-3. https://app.joinhandshake.com/jobs/10233195
-4. https://app.joinhandshake.com/jobs/10234203
-5. https://app.joinhandshake.com/jobs/10235793
-6. https://app.joinhandshake.com/jobs/10234405
-7. https://app.joinhandshake.com/jobs/10233838
-8. https://app.joinhandshake.com/jobs/10236438
-9. https://app.joinhandshake.com/jobs/10235700
+1. https://app.joinhandshake.com/jobs/10236207
+2. https://app.joinhandshake.com/jobs/10233838
+3. https://app.joinhandshake.com/jobs/10233105
+4. https://app.joinhandshake.com/jobs/10233346
+5. https://app.joinhandshake.com/jobs/10235369
+6. https://app.joinhandshake.com/jobs/10236438
+7. https://app.joinhandshake.com/jobs/10235558
+8. https://app.joinhandshake.com/jobs/10238752
+9. https://app.joinhandshake.com/jobs/10233397
 10. https://app.joinhandshake.com/jobs/10236270
 
 **Semantic ID Breakdown for Sampled Jobs**:
 
 | Job ID | Level 0 | Level 1 | Level 2 | Level 3 | Full Semantic ID |
 |--------|--------|--------|--------|--------|--------|
-| 10234231 | 152 | 105 | 199 | 25 | True |
-| 10235988 | 152 | 105 | 199 | 27 | True |
-| 10233195 | 152 | 105 | 199 | 0 | True |
-| 10234203 | 152 | 105 | 199 | 24 | True |
-| 10235793 | 152 | 105 | 199 | 29 | True |
-| 10234405 | 152 | 105 | 199 | 5 | True |
+| 10236207 | 152 | 105 | 199 | 6 | True |
 | 10233838 | 152 | 105 | 199 | 22 | True |
+| 10233105 | 152 | 105 | 199 | 20 | True |
+| 10233346 | 152 | 105 | 199 | 28 | True |
+| 10235369 | 152 | 105 | 199 | 17 | True |
 | 10236438 | 152 | 105 | 199 | 13 | True |
-| 10235700 | 152 | 105 | 199 | 10 | True |
+| 10235558 | 152 | 105 | 199 | 7 | True |
+| 10238752 | 152 | 105 | 199 | 14 | True |
+| 10233397 | 152 | 105 | 199 | 18 | True |
 | 10236270 | 152 | 105 | 199 | 8 | True |
+
+---
+
+## Semantic ID Group 4
+**Semantic ID Code**: 152-105-236
+**Total Jobs**: 30
+**Sampled Jobs** (10 jobs):
+
+1. https://app.joinhandshake.com/jobs/10233186
+2. https://app.joinhandshake.com/jobs/10235443
+3. https://app.joinhandshake.com/jobs/10233904
+4. https://app.joinhandshake.com/jobs/10235381
+5. https://app.joinhandshake.com/jobs/10234267
+6. https://app.joinhandshake.com/jobs/10236380
+7. https://app.joinhandshake.com/jobs/10234977
+8. https://app.joinhandshake.com/jobs/10233244
+9. https://app.joinhandshake.com/jobs/10236834
+10. https://app.joinhandshake.com/jobs/10236445
+
+**Semantic ID Breakdown for Sampled Jobs**:
+
+| Job ID | Level 0 | Level 1 | Level 2 | Level 3 | Full Semantic ID |
+|--------|--------|--------|--------|--------|--------|
+| 10233186 | 152 | 105 | 236 | 25 | True |
+| 10235443 | 152 | 105 | 236 | 27 | True |
+| 10233904 | 152 | 105 | 236 | 0 | True |
+| 10235381 | 152 | 105 | 236 | 24 | True |
+| 10234267 | 152 | 105 | 236 | 29 | True |
+| 10236380 | 152 | 105 | 236 | 5 | True |
+| 10234977 | 152 | 105 | 236 | 22 | True |
+| 10233244 | 152 | 105 | 236 | 13 | True |
+| 10236834 | 152 | 105 | 236 | 10 | True |
+| 10236445 | 152 | 105 | 236 | 8 | True |
 
 ---
 
@@ -176,7 +176,7 @@ This report evaluates the semantic clustering quality by examining jobs that sha
 
 - **Total unique first 3 levels (Levels 0-2) combinations**: 287,418
 - **Most common combination**: 152-91-16 (43 jobs)
-- **Least common combination**: 17-216-248 (1 jobs)
+- **Least common combination**: 13-5-20 (1 jobs)
 - **Average jobs per first 3 levels (Levels 0-2) combination**: 1.1
 
 **Distribution of combination sizes**:

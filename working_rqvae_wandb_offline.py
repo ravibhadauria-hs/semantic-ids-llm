@@ -19,25 +19,20 @@ logger = setup_logger("train-rqvae-wandb-offline", log_to_file=True)
 if __name__ == "__main__":
     # Customize your configuration here
     config = RQVAEConfig(
-        # Category of the data
         category="jobs",
-
-        # Codebook levels
-        codebook_quantization_levels=2,
-
-        # Codebook size
-        codebook_size=64,
-
-        # Codebook embedding dimension
-        # Adjust embedding dimension to match your data
-        item_embedding_dim=768,  # BGE embeddings are 768-dimensional
+        codebook_quantization_levels=3,  # L3
+        codebook_size=128,               # C128
+        item_embedding_dim=768,
+        batch_size=33668,
+        num_epochs=1000,
+        embeddings_path="data/output/jobs_with_bge_embeddings.parquet",
         
-        # You can also customize other parameters
-        batch_size=65536,  # Reduce if you have memory issues
-        num_epochs=1000,   # Reduce for testing
-        
-        # Specify your embeddings path
-        embeddings_path="data/output/jobs_with_bge_embeddings.parquet"
+        # Improved learning rate schedule
+        scheduler_type="cosine_with_warmup",
+        warmup_start_lr=1e-8,
+        max_lr=2e-4,        # Reduced from 3e-4
+        min_lr=1e-5,        # Increased from 1e-6
+        warmup_steps=200,  # Increased from 200
     )
     
     device_manager = DeviceManager(logger)

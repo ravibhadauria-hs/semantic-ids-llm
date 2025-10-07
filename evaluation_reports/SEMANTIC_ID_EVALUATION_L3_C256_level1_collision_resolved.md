@@ -176,7 +176,7 @@ This report evaluates the semantic clustering quality by examining jobs that sha
 
 - **Total unique first 2 levels (Levels 0-1) combinations**: 56,294
 - **Most common combination**: 152-235 (287 jobs)
-- **Least common combination**: 237-36 (1 jobs)
+- **Least common combination**: 24-82 (1 jobs)
 - **Average jobs per first 2 levels (Levels 0-1) combination**: 5.5
 
 **Distribution of combination sizes**:
