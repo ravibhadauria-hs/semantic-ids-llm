@@ -7,20 +7,20 @@ Samples jobs that match at the given semantic level and generates clickable Hand
 import polars as pl
 import numpy as np
 import random
-from collections import Counter
 from pathlib import Path
 
 def load_semantic_ids_data(file_path: str) -> pl.DataFrame:
     """Load semantic IDs data from parquet file."""
     return pl.read_parquet(file_path)
 
-def find_common_combinations_by_level(df: pl.DataFrame, level: int, min_count: int = 10) -> pl.DataFrame:
+def find_common_combinations_by_level(df: pl.DataFrame, level: int, min_count: int = 10, randomize_levels: list = None, random_seed: int = 42) -> pl.DataFrame:
     """Find semantic ID combinations up to the specified level that have at least min_count jobs.
     
     Args:
         df: DataFrame with semantic IDs
         level: Level to group by (0=first level only, 1=first two levels, etc.)
         min_count: Minimum number of jobs required for a combination to be considered
+        randomize_levels: List of levels to randomize (e.g., [0, 1] to randomize levels 0 and 1)
     """
     # Dynamically determine available levels from column names
     available_levels = [col for col in df.columns if col.startswith("semantic_id_level_")]
@@ -29,14 +29,32 @@ def find_common_combinations_by_level(df: pl.DataFrame, level: int, min_count: i
     if level < 0 or level > max_level:
         raise ValueError(f"Level must be between 0 and {max_level} (inclusive). Available levels: {list(range(max_level + 1))}")
     
+    # Create a copy of the dataframe for randomization
+    df_work = df.clone()
+    # Randomize specified levels if requested
+    if randomize_levels:
+        # Set random seed for reproducible randomization
+        random.seed(random_seed)
+        for rand_level in randomize_levels:
+            if rand_level <= level:  # Only randomize levels we're actually using
+                # Get unique values for this level
+                unique_values = df[f"semantic_id_level_{rand_level}"].unique().to_list()
+                # Shuffle the unique values
+                random.shuffle(unique_values)
+                # Create mapping from original values to randomized values
+                mapping = {original: randomized for original, randomized in zip(sorted(unique_values), unique_values)}
+                # Apply randomization
+                df_work = df_work.with_columns(
+                    pl.col(f"semantic_id_level_{rand_level}").replace(mapping)
+                )
     # Build group columns up to the specified level
     group_cols = [f"semantic_id_level_{i}" for i in range(level + 1)]
     
-    level_counts = df.group_by(group_cols).agg(pl.len().alias("count")).sort("count", descending=True)
+    level_counts = df_work.group_by(group_cols).agg(pl.len().alias("count")).sort("count", descending=True)
     common_combinations = level_counts.filter(pl.col("count") >= min_count)
     return common_combinations
 
-def sample_jobs_by_level(df: pl.DataFrame, level: int, combination_values: list, sample_size: int = 10) -> pl.DataFrame:
+def sample_jobs_by_level(df: pl.DataFrame, level: int, combination_values: list, sample_size: int = 10, randomize_levels: list = None, random_seed: int = 42) -> pl.DataFrame:
     """Sample jobs that have the specified semantic ID combination up to the given level.
     
     Args:
@@ -44,6 +62,7 @@ def sample_jobs_by_level(df: pl.DataFrame, level: int, combination_values: list,
         level: Level to match (0=first level only, 1=first two levels, etc.)
         combination_values: List of values to match [level_0, level_1, ...] (unused levels ignored)
         sample_size: Number of jobs to sample
+        randomize_levels: List of levels to randomize (e.g., [0, 1] to randomize levels 0 and 1)
     """
     # Dynamically determine available levels from column names
     available_levels = [col for col in df.columns if col.startswith("semantic_id_level_")]
@@ -51,6 +70,26 @@ def sample_jobs_by_level(df: pl.DataFrame, level: int, combination_values: list,
     
     if level < 0 or level > max_level:
         raise ValueError(f"Level must be between 0 and {max_level} (inclusive). Available levels: {list(range(max_level + 1))}")
+    
+    # Create a copy of the dataframe for randomization (same as in find_common_combinations_by_level)
+    df_work = df.clone()
+    
+    # Apply the same randomization if requested
+    if randomize_levels:
+        # Set random seed for reproducible randomization (same as in find_common_combinations_by_level)
+        random.seed(random_seed)
+        for rand_level in randomize_levels:
+            if rand_level <= level:  # Only randomize levels we're actually using
+                # Get unique values for this level
+                unique_values = df[f"semantic_id_level_{rand_level}"].unique().to_list()
+                # Shuffle the unique values (using same seed for consistency)
+                random.shuffle(unique_values)
+                # Create mapping from original values to randomized values
+                mapping = {original: randomized for original, randomized in zip(sorted(unique_values), unique_values)}
+                # Apply randomization
+                df_work = df_work.with_columns(
+                    pl.col(f"semantic_id_level_{rand_level}").replace(mapping)
+                )
     
     # Build filter conditions for all levels up to the specified level
     conditions = []
@@ -60,12 +99,12 @@ def sample_jobs_by_level(df: pl.DataFrame, level: int, combination_values: list,
     
     # Apply all conditions
     if len(conditions) == 1:
-        matching_jobs = df.filter(conditions[0])
+        matching_jobs = df_work.filter(conditions[0])
     else:
         combined_condition = conditions[0]
         for condition in conditions[1:]:
             combined_condition = combined_condition & condition
-        matching_jobs = df.filter(combined_condition)
+        matching_jobs = df_work.filter(combined_condition)
     
     if len(matching_jobs) < sample_size:
         sample_size = len(matching_jobs)
@@ -79,7 +118,7 @@ def generate_handshake_urls(job_ids: list) -> list:
     base_url = "https://app.joinhandshake.com/jobs/"
     return [f"{base_url}{job_id}" for job_id in job_ids]
 
-def create_evaluation_report(df: pl.DataFrame, level: int = 2, num_semantic_ids: int = 5, sample_size: int = 10) -> str:
+def create_evaluation_report(df: pl.DataFrame, level: int = 2, num_semantic_ids: int = 5, sample_size: int = 10, randomize_levels: list = None) -> str:
     """Create a comprehensive evaluation report for the specified hierarchical level.
     
     Args:
@@ -87,6 +126,7 @@ def create_evaluation_report(df: pl.DataFrame, level: int = 2, num_semantic_ids:
         level: Level to evaluate (0=first level only, 1=first two levels, etc.)
         num_semantic_ids: Number of semantic ID groups to evaluate
         sample_size: Number of jobs per group
+        randomize_levels: List of levels to randomize (e.g., [0, 1] to randomize levels 0 and 1)
     """
     
     # Dynamically determine available levels
@@ -97,13 +137,36 @@ def create_evaluation_report(df: pl.DataFrame, level: int = 2, num_semantic_ids:
         raise ValueError(f"Level must be between 0 and {max_level} (inclusive). Available levels: {list(range(max_level + 1))}")
     
     # Find common combinations at the specified level
-    common_combinations = find_common_combinations_by_level(df, level, min_count=sample_size)
+    common_combinations = find_common_combinations_by_level(df, level, min_count=sample_size, randomize_levels=randomize_levels, random_seed=123)
     
     if len(common_combinations) < num_semantic_ids:
         num_semantic_ids = len(common_combinations)
     
-    # Select combinations from common ones
-    selected_combinations = common_combinations.head(num_semantic_ids)
+    # Select combinations ensuring variety across level 0 codes
+    if randomize_levels and 0 in randomize_levels:
+        # Group by level 0 and select best combination from each group
+        selected_combinations = []
+        level0_groups = common_combinations.group_by("semantic_id_level_0").agg(pl.all())
+        
+        for group in level0_groups.iter_rows():
+            level0_code = group[0]
+            # Get all combinations for this level 0 code
+            level0_combos = common_combinations.filter(pl.col("semantic_id_level_0") == level0_code)
+            if len(level0_combos) > 0:
+                # Take the best combination from this level 0 group
+                best_combo = level0_combos.head(1)
+                selected_combinations.append(best_combo)
+                if len(selected_combinations) >= num_semantic_ids:
+                    break
+        
+        # Convert list to DataFrame
+        if selected_combinations:
+            selected_combinations = pl.concat(selected_combinations)
+        else:
+            selected_combinations = common_combinations.head(num_semantic_ids)
+    else:
+        # Original behavior for non-randomized or when level 0 is not randomized
+        selected_combinations = common_combinations.head(num_semantic_ids)
     
     # Determine level description dynamically
     if level == 0:
@@ -122,6 +185,9 @@ def create_evaluation_report(df: pl.DataFrame, level: int = 2, num_semantic_ids:
     report.append(f"**Evaluation Level**: {level_description}")
     report.append(f"**Evaluation**: {num_semantic_ids} semantic ID groups")
     report.append(f"**Sample Size**: {sample_size} jobs per group")
+    if randomize_levels:
+        randomized_levels_str = ", ".join(map(str, randomize_levels))
+        report.append(f"**Randomized Levels**: {randomized_levels_str} (for variety)")
     report.append("")
     
     for i, row in enumerate(selected_combinations.iter_rows(), 1):
@@ -137,7 +203,7 @@ def create_evaluation_report(df: pl.DataFrame, level: int = 2, num_semantic_ids:
         report.append(f"**Total Jobs**: {total_jobs:,}")
         
         # Sample jobs
-        sampled_jobs = sample_jobs_by_level(df, level, combination_values, sample_size)
+        sampled_jobs = sample_jobs_by_level(df, level, combination_values, sample_size, randomize_levels, random_seed=123)
         job_ids = sampled_jobs["parent_asin"].to_list()
         handshake_urls = generate_handshake_urls(job_ids)
         
@@ -289,6 +355,8 @@ def main():
                        help="Path to semantic IDs data file")
     parser.add_argument("--output", type=str, default="evaluation_reports/SEMANTIC_ID_EVALUATION.md",
                        help="Output file for evaluation report")
+    parser.add_argument("--randomize-levels", type=int, nargs="+", default=None,
+                       help="Levels to randomize for variety (e.g., --randomize-levels 0 1)")
     
     args = parser.parse_args()
     
@@ -322,7 +390,7 @@ def main():
         level_desc = f"first {args.level + 1} levels"
     
     print(f"Generating evaluation report for {level_desc}...")
-    report = create_evaluation_report(df, level=args.level, num_semantic_ids=args.num_groups, sample_size=args.sample_size)
+    report = create_evaluation_report(df, level=args.level, num_semantic_ids=args.num_groups, sample_size=args.sample_size, randomize_levels=args.randomize_levels)
     
     # Save report
     with open(modified_output, "w") as f:

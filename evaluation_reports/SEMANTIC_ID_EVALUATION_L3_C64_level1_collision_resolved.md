@@ -6,169 +6,170 @@ This report evaluates the semantic clustering quality by examining jobs that sha
 **Evaluation Level**: first 2 levels (Levels 0-1)
 **Evaluation**: 5 semantic ID groups
 **Sample Size**: 10 jobs per group
+**Randomized Levels**: 0, 1 (for variety)
 
 ## Semantic ID Group 1
-**Semantic ID Code**: 62-48
-**Total Jobs**: 1,073
+**Semantic ID Code**: 0-19
+**Total Jobs**: 218
 **Sampled Jobs** (10 jobs):
 
-1. https://app.joinhandshake.com/jobs/10235900
-2. https://app.joinhandshake.com/jobs/10235285
-3. https://app.joinhandshake.com/jobs/10178999
-4. https://app.joinhandshake.com/jobs/10233988
-5. https://app.joinhandshake.com/jobs/10233156
-6. https://app.joinhandshake.com/jobs/10234050
-7. https://app.joinhandshake.com/jobs/10233579
-8. https://app.joinhandshake.com/jobs/10234574
-9. https://app.joinhandshake.com/jobs/10233827
-10. https://app.joinhandshake.com/jobs/10373923
+1. https://app.joinhandshake.com/jobs/10196937
+2. https://app.joinhandshake.com/jobs/10354650
+3. https://app.joinhandshake.com/jobs/10351187
+4. https://app.joinhandshake.com/jobs/10193197
+5. https://app.joinhandshake.com/jobs/10271980
+6. https://app.joinhandshake.com/jobs/10251510
+7. https://app.joinhandshake.com/jobs/10350364
+8. https://app.joinhandshake.com/jobs/10350365
+9. https://app.joinhandshake.com/jobs/10346983
+10. https://app.joinhandshake.com/jobs/10351182
 
 **Semantic ID Breakdown for Sampled Jobs**:
 
 | Job ID | Level 0 | Level 1 | Level 2 | Level 3 | Full Semantic ID |
 |--------|--------|--------|--------|--------|--------|
-| 10235900 | 62 | 48 | 59 | 16 | True |
-| 10235285 | 62 | 48 | 54 | 6 | True |
-| 10178999 | 62 | 48 | 4 | 6 | True |
-| 10233988 | 62 | 48 | 54 | 107 | True |
-| 10233156 | 62 | 48 | 54 | 94 | True |
-| 10234050 | 62 | 48 | 53 | 9 | True |
-| 10233579 | 62 | 48 | 33 | 6 | True |
-| 10234574 | 62 | 48 | 53 | 4 | True |
-| 10233827 | 62 | 48 | 48 | 37 | True |
-| 10373923 | 62 | 48 | 54 | 9 | True |
+| 10196937 | 0 | 19 | 54 | 0 | True |
+| 10354650 | 0 | 19 | 5 | 8 | True |
+| 10351187 | 0 | 19 | 18 | 17 | True |
+| 10193197 | 0 | 19 | 52 | 0 | True |
+| 10271980 | 0 | 19 | 10 | 2 | True |
+| 10251510 | 0 | 19 | 60 | 0 | True |
+| 10350364 | 0 | 19 | 30 | 0 | True |
+| 10350365 | 0 | 19 | 33 | 1 | True |
+| 10346983 | 0 | 19 | 23 | 1 | True |
+| 10351182 | 0 | 19 | 8 | 1 | True |
 
 ---
 
 ## Semantic ID Group 2
-**Semantic ID Code**: 62-38
-**Total Jobs**: 1,003
+**Semantic ID Code**: 18-12
+**Total Jobs**: 262
 **Sampled Jobs** (10 jobs):
 
-1. https://app.joinhandshake.com/jobs/10373124
-2. https://app.joinhandshake.com/jobs/10338858
-3. https://app.joinhandshake.com/jobs/10233350
-4. https://app.joinhandshake.com/jobs/10190512
-5. https://app.joinhandshake.com/jobs/10373127
-6. https://app.joinhandshake.com/jobs/10235104
-7. https://app.joinhandshake.com/jobs/10372009
-8. https://app.joinhandshake.com/jobs/10374045
-9. https://app.joinhandshake.com/jobs/10235322
-10. https://app.joinhandshake.com/jobs/10233331
+1. https://app.joinhandshake.com/jobs/1895974
+2. https://app.joinhandshake.com/jobs/10115709
+3. https://app.joinhandshake.com/jobs/10098309
+4. https://app.joinhandshake.com/jobs/10280238
+5. https://app.joinhandshake.com/jobs/9573783
+6. https://app.joinhandshake.com/jobs/10356598
+7. https://app.joinhandshake.com/jobs/10124863
+8. https://app.joinhandshake.com/jobs/10121261
+9. https://app.joinhandshake.com/jobs/10240838
+10. https://app.joinhandshake.com/jobs/10113879
 
 **Semantic ID Breakdown for Sampled Jobs**:
 
 | Job ID | Level 0 | Level 1 | Level 2 | Level 3 | Full Semantic ID |
 |--------|--------|--------|--------|--------|--------|
-| 10373124 | 62 | 38 | 54 | 6 | True |
-| 10338858 | 62 | 38 | 38 | 2 | True |
-| 10233350 | 62 | 38 | 54 | 47 | True |
-| 10190512 | 62 | 38 | 54 | 49 | True |
-| 10373127 | 62 | 38 | 56 | 12 | True |
-| 10235104 | 62 | 38 | 12 | 8 | True |
-| 10372009 | 62 | 38 | 54 | 5 | True |
-| 10374045 | 62 | 38 | 53 | 24 | True |
-| 10235322 | 62 | 38 | 33 | 6 | True |
-| 10233331 | 62 | 38 | 34 | 11 | True |
+| 1895974 | 18 | 12 | 54 | 0 | True |
+| 10115709 | 18 | 12 | 41 | 3 | True |
+| 10098309 | 18 | 12 | 34 | 0 | True |
+| 10280238 | 18 | 12 | 14 | 2 | True |
+| 9573783 | 18 | 12 | 48 | 3 | True |
+| 10356598 | 18 | 12 | 29 | 3 | True |
+| 10124863 | 18 | 12 | 31 | 0 | True |
+| 10121261 | 18 | 12 | 43 | 4 | True |
+| 10240838 | 18 | 12 | 3 | 0 | True |
+| 10113879 | 18 | 12 | 5 | 6 | True |
 
 ---
 
 ## Semantic ID Group 3
-**Semantic ID Code**: 62-40
-**Total Jobs**: 484
+**Semantic ID Code**: 9-8
+**Total Jobs**: 118
 **Sampled Jobs** (10 jobs):
 
-1. https://app.joinhandshake.com/jobs/10234067
-2. https://app.joinhandshake.com/jobs/10233815
-3. https://app.joinhandshake.com/jobs/10236542
-4. https://app.joinhandshake.com/jobs/10371671
-5. https://app.joinhandshake.com/jobs/10235329
-6. https://app.joinhandshake.com/jobs/10233612
-7. https://app.joinhandshake.com/jobs/10233623
-8. https://app.joinhandshake.com/jobs/10235534
-9. https://app.joinhandshake.com/jobs/10369563
-10. https://app.joinhandshake.com/jobs/10234206
+1. https://app.joinhandshake.com/jobs/10091963
+2. https://app.joinhandshake.com/jobs/10326750
+3. https://app.joinhandshake.com/jobs/10194639
+4. https://app.joinhandshake.com/jobs/10073105
+5. https://app.joinhandshake.com/jobs/9739795
+6. https://app.joinhandshake.com/jobs/10287053
+7. https://app.joinhandshake.com/jobs/10270019
+8. https://app.joinhandshake.com/jobs/10106028
+9. https://app.joinhandshake.com/jobs/10349731
+10. https://app.joinhandshake.com/jobs/10274747
 
 **Semantic ID Breakdown for Sampled Jobs**:
 
 | Job ID | Level 0 | Level 1 | Level 2 | Level 3 | Full Semantic ID |
 |--------|--------|--------|--------|--------|--------|
-| 10234067 | 62 | 40 | 50 | 9 | True |
-| 10233815 | 62 | 40 | 14 | 1 | True |
-| 10236542 | 62 | 40 | 52 | 11 | True |
-| 10371671 | 62 | 40 | 24 | 22 | True |
-| 10235329 | 62 | 40 | 10 | 9 | True |
-| 10233612 | 62 | 40 | 10 | 17 | True |
-| 10233623 | 62 | 40 | 54 | 55 | True |
-| 10235534 | 62 | 40 | 5 | 1 | True |
-| 10369563 | 62 | 40 | 10 | 30 | True |
-| 10234206 | 62 | 40 | 52 | 21 | True |
+| 10091963 | 9 | 8 | 40 | 0 | True |
+| 10326750 | 9 | 8 | 2 | 1 | True |
+| 10194639 | 9 | 8 | 23 | 1 | True |
+| 10073105 | 9 | 8 | 48 | 0 | True |
+| 9739795 | 9 | 8 | 48 | 2 | True |
+| 10287053 | 9 | 8 | 46 | 1 | True |
+| 10270019 | 9 | 8 | 34 | 1 | True |
+| 10106028 | 9 | 8 | 50 | 0 | True |
+| 10349731 | 9 | 8 | 58 | 0 | True |
+| 10274747 | 9 | 8 | 35 | 2 | True |
 
 ---
 
 ## Semantic ID Group 4
-**Semantic ID Code**: 53-58
-**Total Jobs**: 431
+**Semantic ID Code**: 27-53
+**Total Jobs**: 154
 **Sampled Jobs** (10 jobs):
 
-1. https://app.joinhandshake.com/jobs/9945519
-2. https://app.joinhandshake.com/jobs/10153173
-3. https://app.joinhandshake.com/jobs/10284324
-4. https://app.joinhandshake.com/jobs/9815832
-5. https://app.joinhandshake.com/jobs/10347749
-6. https://app.joinhandshake.com/jobs/10349935
-7. https://app.joinhandshake.com/jobs/9958657
-8. https://app.joinhandshake.com/jobs/10080979
-9. https://app.joinhandshake.com/jobs/10336987
-10. https://app.joinhandshake.com/jobs/9751048
+1. https://app.joinhandshake.com/jobs/9622773
+2. https://app.joinhandshake.com/jobs/9901531
+3. https://app.joinhandshake.com/jobs/10086961
+4. https://app.joinhandshake.com/jobs/10360121
+5. https://app.joinhandshake.com/jobs/10214588
+6. https://app.joinhandshake.com/jobs/10069434
+7. https://app.joinhandshake.com/jobs/9849573
+8. https://app.joinhandshake.com/jobs/9980555
+9. https://app.joinhandshake.com/jobs/10345120
+10. https://app.joinhandshake.com/jobs/10249825
 
 **Semantic ID Breakdown for Sampled Jobs**:
 
 | Job ID | Level 0 | Level 1 | Level 2 | Level 3 | Full Semantic ID |
 |--------|--------|--------|--------|--------|--------|
-| 9945519 | 53 | 58 | 50 | 0 | True |
-| 10153173 | 53 | 58 | 54 | 24 | True |
-| 10284324 | 53 | 58 | 33 | 23 | True |
-| 9815832 | 53 | 58 | 52 | 3 | True |
-| 10347749 | 53 | 58 | 9 | 13 | True |
-| 10349935 | 53 | 58 | 16 | 4 | True |
-| 9958657 | 53 | 58 | 50 | 5 | True |
-| 10080979 | 53 | 58 | 54 | 9 | True |
-| 10336987 | 53 | 58 | 54 | 5 | True |
-| 9751048 | 53 | 58 | 15 | 0 | True |
+| 9622773 | 27 | 53 | 54 | 0 | True |
+| 9901531 | 27 | 53 | 37 | 0 | True |
+| 10086961 | 27 | 53 | 59 | 0 | True |
+| 10360121 | 27 | 53 | 16 | 2 | True |
+| 10214588 | 27 | 53 | 54 | 6 | True |
+| 10069434 | 27 | 53 | 9 | 0 | True |
+| 9849573 | 27 | 53 | 48 | 0 | True |
+| 9980555 | 27 | 53 | 51 | 1 | True |
+| 10345120 | 27 | 53 | 12 | 0 | True |
+| 10249825 | 27 | 53 | 24 | 6 | True |
 
 ---
 
 ## Semantic ID Group 5
-**Semantic ID Code**: 62-10
-**Total Jobs**: 421
+**Semantic ID Code**: 21-54
+**Total Jobs**: 236
 **Sampled Jobs** (10 jobs):
 
-1. https://app.joinhandshake.com/jobs/10374959
-2. https://app.joinhandshake.com/jobs/10235867
-3. https://app.joinhandshake.com/jobs/10235642
-4. https://app.joinhandshake.com/jobs/10234674
-5. https://app.joinhandshake.com/jobs/10194376
-6. https://app.joinhandshake.com/jobs/10234706
-7. https://app.joinhandshake.com/jobs/10233913
-8. https://app.joinhandshake.com/jobs/10369554
-9. https://app.joinhandshake.com/jobs/10233096
-10. https://app.joinhandshake.com/jobs/10233903
+1. https://app.joinhandshake.com/jobs/906782
+2. https://app.joinhandshake.com/jobs/9863367
+3. https://app.joinhandshake.com/jobs/10324372
+4. https://app.joinhandshake.com/jobs/10355011
+5. https://app.joinhandshake.com/jobs/10354203
+6. https://app.joinhandshake.com/jobs/10191631
+7. https://app.joinhandshake.com/jobs/10012005
+8. https://app.joinhandshake.com/jobs/10300060
+9. https://app.joinhandshake.com/jobs/10259391
+10. https://app.joinhandshake.com/jobs/9926004
 
 **Semantic ID Breakdown for Sampled Jobs**:
 
 | Job ID | Level 0 | Level 1 | Level 2 | Level 3 | Full Semantic ID |
 |--------|--------|--------|--------|--------|--------|
-| 10374959 | 62 | 10 | 25 | 35 | True |
-| 10235867 | 62 | 10 | 35 | 1 | True |
-| 10235642 | 62 | 10 | 40 | 5 | True |
-| 10234674 | 62 | 10 | 16 | 0 | True |
-| 10194376 | 62 | 10 | 23 | 8 | True |
-| 10234706 | 62 | 10 | 20 | 4 | True |
-| 10233913 | 62 | 10 | 54 | 46 | True |
-| 10369554 | 62 | 10 | 54 | 45 | True |
-| 10233096 | 62 | 10 | 54 | 85 | True |
-| 10233903 | 62 | 10 | 25 | 10 | True |
+| 906782 | 21 | 54 | 30 | 0 | True |
+| 9863367 | 21 | 54 | 58 | 1 | True |
+| 10324372 | 21 | 54 | 32 | 4 | True |
+| 10355011 | 21 | 54 | 10 | 0 | True |
+| 10354203 | 21 | 54 | 21 | 8 | True |
+| 10191631 | 21 | 54 | 54 | 0 | True |
+| 10012005 | 21 | 54 | 33 | 9 | True |
+| 10300060 | 21 | 54 | 49 | 1 | True |
+| 10259391 | 21 | 54 | 36 | 0 | True |
+| 9926004 | 21 | 54 | 5 | 3 | True |
 
 ---
 
@@ -176,7 +177,7 @@ This report evaluates the semantic clustering quality by examining jobs that sha
 
 - **Total unique first 2 levels (Levels 0-1) combinations**: 4,056
 - **Most common combination**: 62-48 (1,073 jobs)
-- **Least common combination**: 62-17 (1 jobs)
+- **Least common combination**: 32-32 (1 jobs)
 - **Average jobs per first 2 levels (Levels 0-1) combination**: 76.0
 
 **Distribution of combination sizes**:
